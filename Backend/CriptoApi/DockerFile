@@ -1,0 +1,20 @@
+# Dockerfile para el Backend (Django)
+FROM python:3.11
+
+# Setear el directorio de trabajo
+WORKDIR /app
+
+# Copiar los archivos de requirements
+COPY requirements.txt /app/
+
+# Instalar las dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el código fuente al contenedor
+COPY . /app/
+
+# Exponer el puerto en el que corre Django
+EXPOSE 8000
+
+# Comando por defecto para correr la aplicación
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

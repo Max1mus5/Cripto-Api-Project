@@ -1,0 +1,82 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* estilos para el footer::after{/* advertencia en el foote una nota que dure 5 segnudos indicando que cada minuto se pueden hacer 3 consultas 
+      <footer className="footer">
+      <p className="footer-text">Cada minuto se pueden hacer 3 consultas</p>
+    </footer> */
+
+footer.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 0px 20px;
+  text-align: center;
+}
+a.footer-span{
+  transition: all 0.9 ease-out;
+}
+
+a.footer-span:hover{
+  color: #61dafb;
+  transform: scale(1.1);
+
+}
+
+/* scroll bar styles */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 5px; /* Add border radius to the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px; /* Add border radius to the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px; /* Add border radius to the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
