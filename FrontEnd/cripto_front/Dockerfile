@@ -1,23 +1,16 @@
-# Dockerfile para el Frontend (React)
-FROM node:20
+# Etapa de construcción
+FROM node:18 AS builder
 
-# Setear el directorio de trabajo
 WORKDIR /app
 
-# Copiar el package.json y package-lock.json
-COPY package*.json ./
+COPY package*.json .
 
-# Instalar las dependencias
 RUN npm install
 
-# Copiar el código fuente al contenedor
-COPY . /app/
+COPY . .
 
-# Construir la aplicación
 RUN npm run build
 
-# Exponer el puerto en el que corre la aplicación
-EXPOSE 5000
+RUN npm install -g serve
 
-# Comando por defecto para correr la aplicación
-CMD ["npx", "serve", "-s", "build", "-l", "5000"]
+CMD ["serve", "-s", "build"]

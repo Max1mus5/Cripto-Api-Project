@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, CartesianGrid, Tooltip } from 'recharts';
+import "./css_components/chart.css"
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -23,7 +24,7 @@ const GraphCoin = ({ coinID }) => {
     useEffect(() => {
         const fetchChartData = async () => {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/coins/chart/${coinID}/`);
+                const response = await fetch(`http://localhost:8001/coins/chart/${coinID}/`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
 
@@ -49,7 +50,7 @@ const GraphCoin = ({ coinID }) => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
+        <div className='coinGraphContainer'>
             <h2>Precio 7 Dias</h2>
             <AreaChart
                 width={600}

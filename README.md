@@ -1,5 +1,4 @@
 # CRIPTO API
-
 ## Diagrama del Proyecto
 <img src="./readmeIMG/Diagrama de clase.png">
 
@@ -40,6 +39,7 @@ Este proyecto es un backend desarrollado con *Django* que interactúa con la API
     ```sh
     git clone URL_DEL_REPOSITORIO
     cd backend
+    cd CriptoApi
     ```
 
 2. Crea un entorno virtual y actívalo:
@@ -109,17 +109,69 @@ los puntos que se nos piden en el contrato son:
     ```
 4. Abra su navegador y visite `http://localhost:3000/` para ver la aplicación.
 
-
-<p style="background-color: rgb(255, 255, 0, 0.5); padding: 10px; border-radius: 5px;">
-  <strong>Nota Importante:</strong><br>
-  ⚠️ <strong>Problemas con la Configuración de Docker:</strong><br>
-  Actualmente, la configuración de Docker para este proyecto no está funcionando correctamente. A pesar de los esfuerzos por configurar los contenedores para el backend y el frontend, no fui capaz de hacer que funcionara correctamente. Por lo tanto, la instalación y ejecución de este proyecto se realiza de forma manual.
-</p>
+Aquí tienes una sección revisada para el README que incluye instrucciones claras sobre cómo utilizar Docker para montar el proyecto, reemplazando el mensaje de aviso importante por los pasos apropiados:
 
 
+## Usar con Docker
+
+Para facilitar el despliegue y la ejecución de este proyecto, hemos preparado instrucciones detalladas para construir y ejecutar el proyecto utilizando Docker. Sigue estos pasos para montar el proyecto con Docker:
+
+### Uso de Docker Compose
+
+Si prefieres utilizar Docker Compose para gestionar ambos contenedores simultáneamente, asegúrate de tener un archivo `docker-compose.yml` configurado correctamente en la raíz del proyecto. Luego, ejecuta el siguiente comando en el directorio donde se encuentra el archivo `docker-compose.yml`:
+
+```bash
+docker compose up -d
+```
+
+Este comando iniciará todos los servicios definidos en tu archivo `docker-compose.yml` en modo detached, permitiéndote trabajar con el proyecto mientras los contenedores están en ejecución.
+
+Siguiendo estos pasos, podrás montar y ejecutar el proyecto utilizando Docker de manera efectiva.
 
 
+### Construir la Imagen de Docker
 
+1. **Construir la Imagen del Backend**: Navega hasta el directorio del backend del proyecto. Ejecuta el siguiente comando para construir la imagen de Docker para el backend:
+
+   ```bash
+   docker build -t nombre-imagen-backend .
+   ```
+
+   Este comando crea una imagen de Docker llamada `nombre-imagen-backend` basada en el Dockerfile presente en el directorio actual.
+
+2. **Construir la Imagen del Frontend**: Similarmente, navega hasta el directorio del frontend del proyecto. Ejecuta el siguiente comando para construir la imagen de Docker para el frontend:
+
+   ```bash
+   docker build -t nombre-imagen-frontend .
+   ```
+
+   Este comando crea una imagen de Docker llamada `nombre-imagen-frontend`.
+
+### Ejecutar el Contenedor
+
+Una vez que las imágenes están construidas, puedes ejecutar los contenedores para el backend y el frontend.
+
+1. **Ejecutar el Contenedor del Backend**:
+
+   ```bash
+   docker run -d --name nombre-container-backend -p 8001:8000 nombre-imagen-backend
+   ```
+
+   Este comando ejecuta el contenedor del backend en modo detached (`-d`) y expone el puerto 8000 del contenedor al puerto 8001 de tu máquina local.
+
+2. **Ejecutar el Contenedor del Frontend**:
+
+   ```bash
+   docker run -d --name nombre-container-frontend -p 3000:3000 nombre-imagen-frontend
+   ```
+
+   De manera similar, este comando ejecuta el contenedor del frontend y expone el puerto 3000 del contenedor al puerto 3000 de tu máquina local.
+
+### Verificar la Ejecución
+
+- Para verificar que el contenedor del backend está corriendo y la API está disponible, visita `http://localhost:8001/status/` en tu navegador.
+
+- Para visualizar la interfaz de usuario del frontend, visita `http://localhost:3000/` en tu navegador.
 
 ### Licencia
 

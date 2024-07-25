@@ -3,7 +3,7 @@ import './css_components/coinslist.css';
 import CoinInfoComponent from './CoinInfoComponent'
 
 const CoinsListComponent = () => {
-    const [apiURL] = useState('http://127.0.0.1:8000/');
+    const [apiURL] = useState('http://localhost:8001/');
     const [coins, setCoins] = useState([]);
     const [searchInApi, setSearchInApi] = useState('');
     const [searchResults, setSearchResults] = useState([]);

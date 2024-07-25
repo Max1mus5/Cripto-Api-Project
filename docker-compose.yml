@@ -1,22 +1,14 @@
-version: '3.8'
-
 services:
-  backend:
-    build:
-      context: ./Backend/CriptoApi
-      dockerfile: Dockerfile
-    container_name: django-backend
+  Backend:
+    image: backend-image
+    build: ./Backend/CriptoApi
+    container_name: Django-Backend
     ports:
-      - "8000:8000"
-    volumes:
-      - ./Backend/CriptoApi:/app
-    environment:
-      - DJANGO_SETTINGS_MODULE=CriptoApi.settings
+      - "8001:8000"
 
-  frontend:
-    build:
-      context: ./FrontEnd/cripto_front
-      dockerfile: Dockerfile
-    container_name: react-frontend
+  Frontend:
+    image: frontend-image
+    build: ./FrontEnd/cripto_front
+    container_name: React-Frontend
     ports:
-      - "5000:5000"
+      - "3000:3000"

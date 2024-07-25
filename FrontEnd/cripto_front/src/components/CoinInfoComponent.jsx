@@ -10,7 +10,7 @@ const CoinInfoComponent = ({ coinID, onClose }) => {
     useEffect(() => {
         const fetchCoinInfo = async () => {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/coins/${coinID}/`);
+                const response = await fetch(`http://localhost:8001/coins/${coinID}/`);
                 if (!response.ok) {
                     throw new Error('No se pudo obtener la información de la moneda, 1 minuto Porfavor');
                 }
