@@ -24,7 +24,7 @@ const GraphCoin = ({ coinID }) => {
     useEffect(() => {
         const fetchChartData = async () => {
             try {
-                const response = await fetch(`http://localhost:8001/coins/chart/${coinID}/`);
+                const response = await fetch(`http://api.criptoapi.criptorg.net/coins/chart/${coinID}/`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
 
