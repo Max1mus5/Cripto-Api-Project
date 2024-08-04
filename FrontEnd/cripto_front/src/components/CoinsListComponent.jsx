@@ -3,7 +3,7 @@ import './css_components/coinslist.css';
 import CoinInfoComponent from './CoinInfoComponent'
 
 const CoinsListComponent = () => {
-    const [apiURL] = useState('http://localhost:8001/');
+    const [apiURL] = useState('http://api.criptoapi.criptorg.net/');
     const [coins, setCoins] = useState([]);
     const [searchInApi, setSearchInApi] = useState('');
     const [searchResults, setSearchResults] = useState([]);
